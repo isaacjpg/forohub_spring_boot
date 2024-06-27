@@ -1,0 +1,1 @@
+alter table topics add constraint fk_course_id foreign key(course_id) references courses(id);
