@@ -45,4 +45,27 @@ public class CourseService {
     }
 
 
+    public CourseResponse getCourse(Long id) {
+        Course course = courseRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Course not found"));
+        return new CourseResponse(course.getId(), course.getName(),course.getCategory());
+    }
+
+    public CourseResponse updateCourse(Long id, CourseRequest courseRequest) {
+        Course course = courseRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Course not found"));
+
+        course.setName(courseRequest.name());
+        course.setCategory(courseRequest.category());
+        courseRepository.save(course);
+
+        return new CourseResponse(course.getId(), course.getName(),course.getCategory());
+    }
+
+    public CourseResponse deleteCourse(Long id) {
+        Course course = courseRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Course not found"));
+        courseRepository.delete(course);
+        return new CourseResponse(course.getId(), course.getName(),course.getCategory());
+    }
 }

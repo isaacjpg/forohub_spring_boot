@@ -1,10 +1,12 @@
 package com.forohub.domain.topic;
 
+import com.forohub.domain.reply.Reply;
 import com.forohub.domain.users.User;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import com.forohub.domain.topic.Course;
 
@@ -42,4 +44,5 @@ public class Topic {
         this.isClosed = b;
         return this;
     }
+
 }

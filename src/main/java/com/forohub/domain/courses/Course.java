@@ -15,6 +15,7 @@ import java.util.Locale;
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
 @Builder
+@Setter
 public class Course {
 
     @Id
